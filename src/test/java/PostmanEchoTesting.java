@@ -10,13 +10,13 @@ public class PostmanEchoTesting {
     public void shouldCheckPostRequest() {
         given()
                 .baseUri("https://postman-echo.com")
-                .body("I write this text to check it works") // отправляемые данные (заголовки и query можно выставлять аналогично)
+                .body("I write this to check it works") // отправляемые данные (заголовки и query можно выставлять аналогично)
 // Выполняемые действия
                 .when()
                 .post("/post")
 // Проверки
                 .then()
                 .statusCode(200)
-                .body(/* --> ваша проверка здесь <-- */));
+                .body("data", equalTo("I write this to check it works"));
     }
 }
